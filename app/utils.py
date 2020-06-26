@@ -1,7 +1,6 @@
 import requests
 import json
 import pandas as pd
-import wget
 import numpy as np
 import datetime
 import plotly.express as px
