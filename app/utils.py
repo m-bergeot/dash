@@ -1,28 +1,10 @@
 import requests
-import json
 import pandas as pd
 import numpy as np
 import datetime
 import plotly.express as px
 
 base_url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/"
-
-
-def get_data_pokemon():
-    pk_list = []
-    for i in [10, 15, 22, 34, 36, 44, 56, 76]:
-        r = requests.get(
-            'https://pokeapi.co/api/v2/pokemon/{id}'.format(id=str(i)))
-        pk = json.loads(r.text)
-        pk_tmp = {
-            'name': pk['name'],
-            'height': pk['height'],
-            'weight': pk['weight'],
-            "image": pk['sprites']['front_default']
-        }
-        pk_list.append(pk_tmp)
-
-    return pk_list
 
 
 def rename_columns(input_data):
@@ -122,5 +104,6 @@ def get_data_covid():
         'covid_data_Yesterday': covid_data_Yesterday,
         "confirmed_by_date_US_xUS": confirmed_by_date_US_xUS,
         "confirmed_top_countries": confirmed_top_countries,
-        "Top10_country": Top10_country
+        "Top10_country": Top10_country,
+        "country_df":country_df,
     }

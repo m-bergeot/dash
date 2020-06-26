@@ -13,20 +13,10 @@ def create_app():
         dcc.Location(id='url', refresh=False),
         html.Div(id='page-content')
     ])
-    setup_pages()
+    from app import func
 
     @app.callback(dash.dependencies.Output('page-content', 'children'), [dash.dependencies.Input('url', 'pathname')])
     def display_page(pathname):
-        #if pathname == '/pokemon':
-        #    return func.pokemon_page()
-        #elif pathname == '/covid':
-        #    return func.covid_page()
-        #else:
         return func.index_page()
 
     return server
-
-
-def setup_pages():
-    from app import func
-
